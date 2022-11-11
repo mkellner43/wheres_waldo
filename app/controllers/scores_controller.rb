@@ -46,6 +46,6 @@ class ScoresController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def score_params
-      params.require(:score).permit(:name, :seconds)
+      params.require(:score).permit(:name, :time, :image_id)
     end
 end

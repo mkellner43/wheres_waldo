@@ -12,7 +12,7 @@ class ScoresControllerTest < ActionDispatch::IntegrationTest
 
   test "should create score" do
     assert_difference("Score.count") do
-      post scores_url, params: { score: { name: @score.name, seconds: @score.seconds } }, as: :json
+      post scores_url, params: { score: { image_id: @score.image_id, name: @score.name, time: @score.time } }, as: :json
     end
 
     assert_response :created
@@ -24,7 +24,7 @@ class ScoresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update score" do
-    patch score_url(@score), params: { score: { name: @score.name, seconds: @score.seconds } }, as: :json
+    patch score_url(@score), params: { score: { image_id: @score.image_id, name: @score.name, time: @score.time } }, as: :json
     assert_response :success
   end
 

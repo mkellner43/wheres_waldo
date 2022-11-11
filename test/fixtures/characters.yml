@@ -2,10 +2,14 @@
 
 one:
   name: MyString
-  time: 1
+  x_location: 1
+  y_location: 1
+  picture: MyString
   image: one
 
 two:
   name: MyString
-  time: 1
+  x_location: 1
+  y_location: 1
+  picture: MyString
   image: two

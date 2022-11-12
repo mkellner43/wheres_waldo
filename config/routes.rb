@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  resources :characters
-  resources :scores
-  resources :images
+  namespace :api do 
+    namespace :v1 do
+      resources :characters
+      resources :scores
+      resources :images
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -20,19 +20,45 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 6rem;
 }
-.timer {
+.game-chars > div {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 100px;
-  height: 100px;
+  align-items: center;
+  max-width: 200px;
+  min-width: 200px;
 }
-.game-chars > img {
-  width: 4%;
-  margin: 0rem 2rem;
+.marker {
+  position: absolute;
+  border-radius: 2rem;
+  border: 3px solid green;
+  height: 2rem;
+  width: 2rem;
+}
+.found {
+  background-color: green;
+}
+.game-chars > div > img {
+  width: 100px;
   padding: 0.5rem;
   border: 3px solid black;
   border-radius: 1rem;
+}
+.game-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+.home-btn {
+  width: 80px;
+  text-decoration: none;
+  color: black;
+  border: 3px solid black;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+.timer {
+  padding: 1rem;
+  width: 80px;
 }

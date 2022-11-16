@@ -1,5 +1,4 @@
 import './App.css';
-import Images from './components/Images';
 import React from 'react';
 import Home from './components/Home';
 import Game from './components/Game';

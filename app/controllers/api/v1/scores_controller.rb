@@ -4,7 +4,7 @@ class Api::V1::ScoresController < ApplicationController
   # GET /scores
   def index
     @scores = Score.all
-    @ordered_scores = @scores.order(:time).limit(10)
+    @ordered_scores = @scores.where(image_id: score_params[:image_id]).order(:time).limit(10)
 
     render json: @ordered_scores
   end
@@ -16,11 +16,10 @@ class Api::V1::ScoresController < ApplicationController
 
   # POST /scores
   def create
-    puts params
     @score = Score.new(score_params)
-
+    @imageScores = Score.where(image_id: score_params[:image_id]).order(:time).limit(10)
     if @score.save
-      render json: @score, status: :created
+      render json: @imageScores, status: :created
     else
       render json: @score.errors, status: :unprocessable_entity
     end

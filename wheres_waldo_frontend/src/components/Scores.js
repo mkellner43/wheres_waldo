@@ -1,21 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import FormError from './FormError';
 
 const Score = (props) => {
   const [formComplete, setFormComplete] = useState(false)
   const [name, setName] = useState('')
   const [scores, setScores] = useState([])
+  const [error, setError] = useState(false)
 
   const handleChange = (e) => {
     setName(e.target.value)
+    setError(false)
   }
 
-  useEffect(() => {
-    fetch('http://localhost:3000/api/v1/scores', {
-      method: 'get',
+  const checkValidity = () => {
+    return name.trim().length === 0
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(checkValidity(name)){
+      return setError(true)
+    }else {
+      setError(false)
+    }
+    fetch(`http://localhost:3000/api/v1/scores`, {
+      method: 'post',
       headers:{
-        'Content-Type': 'application/json',
-      }
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({score: {name: name, image_id: props.id, time: props.score}})
     })
     .then(response => response.json())
     .then(data => setScores(
@@ -26,19 +40,6 @@ const Score = (props) => {
         </div>
       )
     ))
-  }, [formComplete])
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch(`http://localhost:3000/api/v1/scores`, {
-      method: 'post',
-      headers:{
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({name: name, image_id: props.id, time: props.score})
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
     .catch((err) => console.log("Error boi is: ", err))
     setFormComplete(true)
   }
@@ -58,7 +59,8 @@ const Score = (props) => {
       <form className='form'>
         <div>Congrats you found Waldo!</div>
         <label>Enter Name</label>
-        <input value={name} onChange={handleChange} placeholder='Name'/>
+        { error ? <FormError id='name' /> : null }
+          <input id='name' type='text' name='name' value={name} onChange={handleChange} placeholder='Name' required/>
         <button onClick={handleSubmit}>Submit</button>
       </form>
     </div>

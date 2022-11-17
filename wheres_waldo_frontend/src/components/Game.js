@@ -76,7 +76,7 @@ const Game = (props) => {
     const x = (e.pageX - e.target.offsetParent.offsetLeft) / (e.target.width) * 100
     let result = checkClick(x, y)
     if(result && !charSeleted[result.char]){
-      setMarker(prevMarker => [...prevMarker, <div key={x} className='marker' style={{left: `calc(${x}% - 1rem)`, top: `calc(${y}% - 1rem)`}}></div>])
+      setMarker(prevMarker => [...prevMarker, <div key={x} className='marker' style={{left: `calc(${x}% - 20px)`, top: `calc(${y}% - 34px)`}}></div>])
       document.getElementById(result.char).classList.add('found')
       setSelectedChar(prevCharSelected => {
         return  {...prevCharSelected, [result.char]: true }

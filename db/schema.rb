@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_11_153258) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_16_210013) do
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.integer "x_location"
-    t.integer "y_location"
+    t.decimal "x_location"
+    t.decimal "y_location"
     t.string "picture"
     t.integer "image_id", null: false
     t.datetime "created_at", null: false

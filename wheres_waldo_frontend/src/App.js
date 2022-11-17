@@ -15,9 +15,9 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/easy' element={<Game mode='easy' image={require('./images/skiSlopes.jpeg')}/>} />
-          <Route path='/medium' element={<Game mode='medium' image={require('./images/spaceStation.jpeg')}/>} />
-          <Route path='/hard' element={<Game mode='hard' image={require('./images/fruitLand.jpeg')}/>} />
+          <Route path='/easy' element={<Game mode='1' image={require('./images/skiSlopes.jpeg')}/>} />
+          <Route path='/medium' element={<Game mode='2' image={require('./images/spaceStation.jpeg')}/>} />
+          <Route path='/hard' element={<Game mode='3' image={require('./images/fruitLand.jpeg')}/>} />
         </Routes>
       </HashRouter>
     </div>

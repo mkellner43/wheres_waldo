@@ -4,13 +4,12 @@ class Api::V1::ImagesController < ApplicationController
   # GET /images
   def index
     @images = Image.all
-
     render json: @images
   end
 
   # GET /images/1
   def show
-    render json: @image
+    render json: @image.characters
   end
 
   # POST /images

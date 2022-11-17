@@ -7,21 +7,21 @@ const Home = () => {
         <h1>Where's Waldo?</h1>
       </header>
       <main>
-        <div>
+        <div className='game-selection'>
         <Link to="/easy">
-          <h5>Easy</h5>
+          <h4 className='title'>Easy</h4>
             <img className='small-img' src={require('../images/skiSlopes.jpeg')} alt="colorful where's waldo field of characters"/>
           </Link>
         </div>
         <div>
         <Link to="/medium">
-          <h5>Medium</h5>
+          <h4 className='title'>Medium</h4>
             <img className='small-img' src={require('../images/spaceStation.jpeg')} alt="colorful where's waldo field of characters"/>
           </Link>
         </div>
         <div>
         <Link to="/hard">
-          <h5>Hard</h5>
+          <h4 className='title'>Hard</h4>
             <img className='small-img' src={require('../images/fruitLand.jpeg')} alt="colorful where's waldo field of characters"/>
         </Link>
         </div>
